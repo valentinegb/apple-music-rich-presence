@@ -4,3 +4,5 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+apple-music = { version = "0.11.3", path = "../apple-music" }
+discord-rich-presence = { git = "https://github.com/vionya/discord-rich-presence.git", rev = "5620e8901566290a583f9354205686b18628ba1b", version = "0.2.4" }
