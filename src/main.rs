@@ -1,11 +1,14 @@
 use std::{
+    env,
     error::Error,
+    fs::File,
     process::ExitCode,
     thread::sleep,
     time::{Duration, Instant, SystemTime, UNIX_EPOCH},
 };
 
 use apple_music::{AppleMusic, PlayerState, Track};
+use daemonize::Daemonize;
 use discord_rich_presence::{
     activity::{Activity, ActivityType, Assets, Button, Timestamps},
     DiscordIpc, DiscordIpcClient,
@@ -168,6 +171,19 @@ fn try_main() -> Result<(), Box<dyn Error>> {
 
     if !sysinfo::IS_SUPPORTED_SYSTEM {
         return Err("This system is not supported by sysinfo, a crucial dependency".into());
+    }
+
+    if env::var("DAEMON")
+        .map(|daemon| daemon == "1")
+        .unwrap_or(true)
+    {
+        let home = env::var("HOME")?;
+        let stderr = File::create(format!(
+            "{home}/Library/Logs/com.valentinegb.apple-music-rich-presence.log",
+        ))?;
+
+        Daemonize::new().stderr(stderr).start()?;
+        debug!("Daemonized");
     }
 
     let mut sys = sysinfo::System::new();
