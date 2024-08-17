@@ -178,9 +178,7 @@ fn try_main() -> Result<(), Box<dyn Error>> {
         .unwrap_or(true)
     {
         let home = env::var("HOME")?;
-        let stderr = File::create(format!(
-            "{home}/Library/Logs/com.valentinegb.apple-music-rich-presence.log",
-        ))?;
+        let stderr = File::create(format!("{home}/Library/Logs/apple-music-rich-presence.log",))?;
 
         Daemonize::new().stderr(stderr).start()?;
         debug!("Daemonized");
