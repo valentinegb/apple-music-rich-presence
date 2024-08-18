@@ -78,6 +78,7 @@ dependencies = [
 [[package]]
 name = "apple-music"
 version = "0.11.3"
+source = "git+https://github.com/valentinegb/apple-music.git#50cc9592343ef49042dbebf4cba000160bec4467"
 dependencies = [
  "env_logger 0.10.2",
  "log",
