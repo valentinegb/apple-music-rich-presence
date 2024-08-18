@@ -92,7 +92,7 @@ dependencies = [
 
 [[package]]
 name = "apple-music-rich-presence"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "apple-music",
  "daemonize",
