@@ -12,3 +12,15 @@ On desktop, Discord might display the activity like this instead:
 <img width="295" alt="Screenshot 2024-08-17 at 5 40 49 PM" src="https://github.com/user-attachments/assets/c2711e08-e4cb-4280-b44a-6e6d7df43b58">
 
 Unfortunately, there's nothing I can do about that, but at least it doesn't look bad still.
+
+## Install
+
+Right now, the easiest way to install if you have the Rust toolchain installed
+is with Cargo:
+
+```
+cargo install --git https://github.com/valentinegb/apple-music-rich-presence.git --tag v1.0.0
+```
+
+The program has only been tested on macOS. It probably works okay on Linux too,
+but probably doesn't work at all on Windows.
