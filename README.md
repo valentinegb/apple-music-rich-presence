@@ -1,5 +1,7 @@
 # Apple Music Rich Presence
 
+[![Rust](https://github.com/valentinegb/apple-music-rich-presence/actions/workflows/rust.yml/badge.svg)](https://github.com/valentinegb/apple-music-rich-presence/actions/workflows/rust.yml)
+
 Rust program that runs in the background and updates your Discord activity if
 you're playing music with Apple Music.
 
