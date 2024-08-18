@@ -24,5 +24,4 @@ is with Cargo:
 cargo install --git https://github.com/valentinegb/apple-music-rich-presence.git --tag v1.0.0
 ```
 
-The program has only been tested on macOS. It probably works okay on Linux too,
-but probably doesn't work at all on Windows.
+The program has only been tested on macOS, and it probably only works on macOS.
