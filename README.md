@@ -25,3 +25,10 @@ cargo install --git https://github.com/valentinegb/apple-music-rich-presence.git
 ```
 
 The program has only been tested on macOS, and it probably only works on macOS.
+
+## Usage
+
+Just run the program (if installed through Cargo, enter
+`apple-music-rich-presence` into your terminal) and you're good to go! I would
+recommend adding it to your Login Items in System Settings so that you don't
+have to start it manually every time you restart your computer.
