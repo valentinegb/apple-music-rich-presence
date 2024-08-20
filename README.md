@@ -21,7 +21,7 @@ Right now, the easiest way to install if you have the Rust toolchain installed
 is with Cargo:
 
 ```
-cargo install --git https://github.com/valentinegb/apple-music-rich-presence.git --tag v1.0.0
+cargo install --git https://github.com/valentinegb/apple-music-rich-presence.git --tag v1.1.0
 ```
 
 The program has only been tested on macOS, and it probably only works on macOS.
