@@ -32,3 +32,29 @@ Just run the program (if installed through Cargo, enter
 `apple-music-rich-presence` into your terminal) and you're good to go! I would
 recommend adding it to your Login Items in System Settings so that you don't
 have to start it manually every time you restart your computer.
+
+### Configuration
+
+There are a few environment variables that can be used to configure Apple Music
+Rich Presence.
+
+#### `MIN_ITER_DUR`
+
+Apple Music Rich Presence, by default, will ensure that each iteration (where it
+checks whether Discord and Apple Music are open, whether the currently playing
+song has changed, etc.) spans at least 1 second. If you feel that it need more
+time to prevent glitchy behaviour like Apple Music refusing to quit, you can
+raise this to, say, `MIN_ITER_DUR=3`.
+
+#### `DAEMON`
+
+By default, Apple Music Rich Presence will launch a daemon process to run in the
+background. You can disable this behaviour, however, by setting `DAEMON` to `0`.
+Then, the program will stay present and you'll be able to see its logging in
+your terminal.
+
+#### `RUST_LOG`
+
+This variable configures the level of logging to perform. See
+[`env_logger`'s documentation](https://docs.rs/env_logger/latest/env_logger/#enabling-logging)
+for info.

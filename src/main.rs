@@ -33,7 +33,6 @@ use log::{debug, error, info, trace, warn};
 use sysinfo::{ProcessRefreshKind, ProcessesToUpdate};
 
 const CLIENT_ID: &str = "1273805325954187386";
-const LOOP_DURATION: Duration = Duration::from_secs(1);
 const EXPECT_CLIENT_INITIALIZED: &str = "Discord client has not been initialized";
 
 fn inner_loop(
@@ -200,6 +199,12 @@ fn try_main() -> Result<(), Box<dyn Error>> {
         debug!("Daemonized");
     }
 
+    let min_iter_dur = Duration::from_secs(
+        env::var("MIN_ITER_DUR")
+            .unwrap_or("1".to_string())
+            .parse()
+            .map_err(|err| format!("Failed to parse `MIN_ITER_DUR`: {err}"))?,
+    );
     let mut sys = sysinfo::System::new();
     let mut discord_client_option = None;
     let mut last_track = None;
@@ -219,8 +224,8 @@ fn try_main() -> Result<(), Box<dyn Error>> {
 
         let loop_start_elapsed = loop_start.elapsed();
 
-        if loop_start_elapsed < LOOP_DURATION {
-            sleep(LOOP_DURATION - loop_start_elapsed);
+        if loop_start_elapsed < min_iter_dur {
+            sleep(min_iter_dur - loop_start_elapsed);
         }
     }
 }
